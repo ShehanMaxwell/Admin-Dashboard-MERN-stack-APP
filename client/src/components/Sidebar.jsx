@@ -33,6 +33,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import FlexBetween from './FlexBetween';
 import profileImage from 'assets/profile.jpg';
 
+
+
 const Sidebar = ({
   drawerWidth,
   isSidebarOpen,
@@ -75,9 +77,16 @@ const Sidebar = ({
                     MAXWELL ECOM
                   </Typography>
                 </Box>
-                
+                {!isNonMobile && (
+                  <IconButton onClick={()=> setIsSidebarOpen(!isSidebarOpen)}>
+                    <ChevronLeft />
+                  </IconButton>
+                )}
               </FlexBetween>
             </Box>
+            <List>
+              {}
+            </List>
           </Box>
         </Drawer>
       )}
