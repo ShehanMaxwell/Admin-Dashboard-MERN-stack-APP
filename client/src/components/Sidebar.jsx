@@ -5,7 +5,6 @@ import {
   Drawer,
   IconButton,
   List,
-  ListItems,
   ListItemButton,
   ListItemIcon,
   ListItemText,
@@ -22,7 +21,6 @@ import {
   Groups2Outlined,
   ReceiptLongOutlined,
   PublicOutlined,
-  pointOfSaleOutlined,
   TodayOutlined,
   CalendarMonthOutlined,
   AdminPanelSettingsOutlined,
@@ -123,9 +121,12 @@ const Sidebar = ({
             '& .MuiDrawer-paper': {
               color: theme.palette.secondary[200],
               backgroundColor: theme.palette.background.alt,
-              boxSixing: 'border-box',
+              boxSizing: 'border-box',
               borderWidth: isNonMobile ? 0 : '2px',
               width: drawerWidth,
+              display: 'flex',
+              flexDirection: 'column', // Display items vertically
+              justifyContent: 'space-between', // Put items at the bottom
             },
           }}
         >
@@ -193,6 +194,38 @@ const Sidebar = ({
                 );
               })}
             </List>
+          </Box>
+          <Box>
+            <Divider />
+            <FlexBetween textTransform='none' gap='1rem' m='1.5rem 2rem 0 3rem'>
+              <Box
+                component='img'
+                alt='profile'
+                src={profileImage}
+                height='40px'
+                width='40px'
+                borderRadius='50%'
+                sx={{ objectFit: 'cover' }}
+              />
+              <Box textAlign='left' ml='1rem'>
+                <Typography
+                  fontWeight='bold'
+                  fontSize='0.9rem'
+                  sx={{ color: theme.palette.secondary[100] }}
+                >
+                  {user.name}
+                </Typography>
+                <Typography
+                  fontSize='0.8rem'
+                  sx={{ color: theme.palette.secondary[200] }}
+                >
+                  {user.occupation}
+                </Typography>
+              </Box>
+              <SettingsOutlined
+                sx={{ color: theme.palette.secondary[300], fontSize: '25px' }}
+              />
+            </FlexBetween>
           </Box>
         </Drawer>
       )}
