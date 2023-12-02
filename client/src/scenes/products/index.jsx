@@ -14,8 +14,12 @@ import {
 import Header from 'components/Header';
 import { useGetProductsQuery } from 'state/api';
 
-function Products() {
-  return <div>Products</div>;
-}
+const Products = () => {
+  return (
+    <Box>
+      <Header title='PRODUCTS' subtitle='See your list of products' />
+    </Box>
+  );
+};
 
 export default Products;
